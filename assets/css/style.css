@@ -1,0 +1,217 @@
+/* ================================================
+   CUSTOMIZE YOUR TEMPLATE
+   Edit the values below. Everything else adjusts.
+   ================================================ */
+
+:root {
+    /* 🎨 Brand color */
+    --color-primary:    #18181b; /* buttons, links, accents */
+    --color-primary-fg: #fafafa; /* text ON primary — keep white or black */
+
+    /* 🌑 Page background & text */
+    --color-bg:         #fafafa; /* page background */
+    --color-text:       #18181b; /* main text */
+    --color-muted:      #52525b; /* subtle text, labels */
+
+    /* 📦 Surfaces */
+    --color-surface:    #f4f4f5; /* cards, inputs, secondary buttons */
+    --color-border:     #e4e4e7; /* borders and dividers */
+
+    /* 🔤 Font — any Google Font name works */
+    --font-sans:        'Inter', sans-serif;
+
+    /* 🔲 Roundness — 0 = sharp edges, 1rem = very round */
+    --radius:           9999px; /* Pill shape for modern look */
+}
+
+/* ── DO NOT EDIT BELOW THIS LINE ──────────────────
+   Internal aliases wired to the tokens above.      */
+:root {
+    --primary:              var(--color-primary);
+    --primary-foreground:   var(--color-primary-fg);
+    --background:           var(--color-bg);
+    --foreground:           var(--color-text);
+    --muted-foreground:     var(--color-muted);
+    --secondary:            var(--color-surface);
+    --accent:               var(--color-surface);
+    --secondary-foreground: var(--color-text);
+    --accent-foreground:    var(--color-text);
+    --border:               var(--color-border);
+    --input:                var(--color-border);
+    --ring:                 var(--color-primary);
+}
+
+/* ─── Base ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Shared Components ─── */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--muted-foreground);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Template Styles ─── */
+:root {
+  --footer-bg: #09090b;
+  --footer-border: #18181b;
+  --footer-text-muted: #a1a1aa;
+}
+
+/* Link Hover Animation */
+.link-hover {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.link-hover::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.link-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Portfolio Item Hover */
+.portfolio-item {
+  border-bottom: 1px solid var(--border);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .portfolio-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.portfolio-item:hover {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-color: var(--foreground);
+}
+
+/* ─── Animations ─── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Hover Image Reveal ─── */
+.hover-reveal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 240px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -100%) scale(0.9);
+  margin-top: -2rem;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  z-index: 100;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hover-reveal.active {
+  opacity: 1;
+  transform: translate(-50%, -100%) scale(1);
+  margin-top: -2rem;
+}
+
+.hover-reveal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-reveal img.active {
+  opacity: 1;
+}
