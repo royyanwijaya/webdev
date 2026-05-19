@@ -3,6 +3,16 @@
    Edit the values below. Everything else adjusts.
    ================================================ */
 
+@font-face {
+  font-family: 'iAWriterQuattroS';
+  src: url('../fonts/iAWriterQuattroS-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ElimtextVF';
+  src: url('../fonts/ElimtextVF.woff') format('woff');
+}
+
 :root {
     /* 🎨 Brand color */
     --color-primary:    #18181b; /* buttons, links, accents */
@@ -18,7 +28,8 @@
     --color-border:     #e4e4e7; /* borders and dividers */
 
     /* 🔤 Font — any Google Font name works */
-    --font-sans:        'Inter', sans-serif;
+    --font-sans:        'iAWriterQuattroS', sans-serif;
+    --font-serif:       'ElimtextVF', serif;
 
     /* 🔲 Roundness — 0 = sharp edges, 1rem = very round */
     --radius:           9999px; /* Pill shape for modern look */

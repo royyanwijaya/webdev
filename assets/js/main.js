@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Calculate dynamic years since 2016
+    const indieYearsElement = document.getElementById('indie-years');
+    if (indieYearsElement) {
+        const startDate = new Date(2016, 0, 1);
+        const currentDate = new Date();
+        let years = currentDate.getFullYear() - startDate.getFullYear();
+        if (currentDate.getMonth() < startDate.getMonth() || 
+            (currentDate.getMonth() === startDate.getMonth() && currentDate.getDate() < startDate.getDate())) {
+            years--;
+        }
+        indieYearsElement.textContent = years;
+    }
+
     // Portfolio Hover Reveal Effect
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     if (portfolioItems.length === 0) return;

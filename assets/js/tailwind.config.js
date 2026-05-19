@@ -3,7 +3,7 @@ tailwind.config = {
         extend: {
             fontFamily: {
                 sans: ['var(--font-sans)', 'sans-serif'],
-                serif: ['Playfair Display', 'serif'],
+                serif: ['var(--font-serif)', 'serif'],
             },
             colors: {
                 background: 'var(--background)',
