@@ -1,0 +1,7 @@
+{
+  "name": "webdev",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "bunx wrangler pages deploy ."
+  }
+}

@@ -5,6 +5,7 @@ Thumbs.db
 # Editor folders
 .vscode/
 .idea/
+.wrangler
 
 # Zip exports — don't commit these
 *.zip
