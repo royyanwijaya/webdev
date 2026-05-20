@@ -647,28 +647,95 @@
     </main>
 
     <footer
-      class="px-6 py-24 border-t bg-footer-bg border-footer-border text-footer-muted"
+      class="relative px-6 py-20 overflow-hidden border-t bg-footer-bg md:px-12 border-footer-border"
     >
+      <!-- Top shimmer line -->
       <div
-        class="flex flex-col items-start justify-between max-w-5xl gap-12 mx-auto md:flex-row md:items-end"
-      >
-        <div>
-          <h2
-            class="mb-8 font-serif text-4xl leading-tight text-white md:text-6xl"
-          >
-            Let's build something<br />extraordinary.
-          </h2>
-          <a
-            href="mailto:halo@roywj.com"
-            class="text-xl font-light tracking-wide text-white md:text-2xl link-hover"
-            >halo@roywj.com</a
-          >
-        </div>
+        class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
+      ></div>
+
+      <!-- Grain overlay -->
+      <div
+        class="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style="
+          background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E&quot;);
+        "
+      ></div>
+
+      <div class="relative z-10 max-w-5xl mx-auto">
         <div
-          class="flex flex-col gap-1 text-sm font-light opacity-70 text-footer-muted"
+          class="flex flex-col gap-12 mb-16 lg:flex-row lg:justify-between lg:items-end lg:gap-8"
         >
-          <p>© 2026 Royyan Wijaya.</p>
-          <p>Designed and coded with pride.</p>
+          <!-- Left Column: Headline -->
+          <div class="lg:max-w-2xl">
+            <!-- Headline -->
+            <h2
+              class="font-serif text-[clamp(42px,7vw,68px)] font-normal leading-[1.05] tracking-[-0.02em] text-white"
+            >
+              Let's make<br />
+              <em class="italic text-footer-muted">something</em><br />
+              people love.
+            </h2>
+          </div>
+
+          <!-- Right Column: Sub & CTAs -->
+          <div class="lg:max-w-sm lg:pb-2">
+            <!-- Available status -->
+            <div class="flex items-center gap-2 mb-4">
+              <span class="relative flex h-1.5 w-1.5">
+                <span
+                  class="absolute inline-flex w-full h-full bg-green-500 rounded-full animate-ping opacity-60"
+                ></span>
+                <span
+                  class="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500"
+                ></span>
+              </span>
+              <span
+                class="font-mono text-[11px] font-light tracking-[0.08em] text-green-500"
+                >Open to remote work. Available immediately.</span
+              >
+            </div>
+
+            <!-- Sub -->
+            <p class="mb-8 text-sm font-light text-footer-muted">
+              10+ years shipping products from blank canvas to production.
+              Design <em>and</em> code — no handoff needed.
+            </p>
+
+            <!-- CTA row -->
+            <div class="flex items-center gap-4">
+              <a href="mailto:halo@roywj.com" class="btn btn-secondary">
+                halo@roywj.com
+              </a>
+
+              <a href="#portfolio" class="btn btn-primary">
+                view portfolio
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row: Stats & Copyright -->
+        <div
+          class="flex flex-col gap-8 pt-8 border-t lg:flex-row lg:items-center lg:justify-between border-footer-border"
+        >
+          <div class="flex flex-col gap-6 sm:flex-row sm:gap-12">
+            <p class="text-sm font-light text-footer-muted">
+              <strong class="font-medium text-white">10+</strong> — Years
+              experience
+            </p>
+            <p class="text-sm font-light text-footer-muted">
+              <strong class="font-medium text-white">20k+</strong> — Assets sold
+            </p>
+            <p class="text-sm font-light text-footer-muted">
+              <strong class="font-medium text-white">$10M ARR</strong> — at
+              Proxycurl
+            </p>
+          </div>
+
+          <p class="text-xs font-light text-footer-muted">
+            © 2026 Royyan Wijaya
+          </p>
         </div>
       </div>
     </footer>
